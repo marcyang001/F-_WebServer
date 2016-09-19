@@ -1,0 +1,8 @@
+c:\users\myang\documents\visual studio 2015\Projects\ChatService\ChatService\bin\Debug\ChatService.exe.config
+c:\users\myang\documents\visual studio 2015\Projects\ChatService\ChatService\bin\Debug\ChatService.XML
+c:\users\myang\documents\visual studio 2015\Projects\ChatService\ChatService\bin\Debug\ChatService.exe
+c:\users\myang\documents\visual studio 2015\Projects\ChatService\ChatService\bin\Debug\ChatService.pdb
+c:\users\myang\documents\visual studio 2015\Projects\ChatService\ChatService\bin\Debug\FSharp.Core.dll
+c:\users\myang\documents\visual studio 2015\Projects\ChatService\ChatService\bin\Debug\FSharp.Core.xml
+c:\users\myang\documents\visual studio 2015\Projects\ChatService\ChatService\obj\Debug\ChatService.exe
+c:\users\myang\documents\visual studio 2015\Projects\ChatService\ChatService\obj\Debug\ChatService.pdb

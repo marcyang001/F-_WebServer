@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doc>
+<assembly><name>ChatService</name></assembly>
+<members>
+<member name="M:program3.HttpAgent.Stop">
+<summary>
+ Stops the HTTP server and releases the TCP connection 
+</summary>
+</member>
+<member name="M:program3.HttpAgent.Receive(Microsoft.FSharp.Core.FSharpOption{System.Int32})">
+<summary>
+ The method should only be used from the body of the agent 
+</summary>
+</member>
+</members>
+</doc>
