@@ -40,7 +40,9 @@ type HttpAgent private (url, f) as this =
     let server = async {
         use listener = new HttpListener()
         listener.Prefixes.Add(url)
+       
         listener.Start()
+        
         while true do
             let! context = listener.AsyncGetContext()
             agent.Post(context) 

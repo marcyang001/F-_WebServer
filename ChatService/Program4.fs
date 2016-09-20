@@ -67,11 +67,14 @@ let handleRequest (context: HttpListenerContext ) = async {
 
 printfn "Start server at 10.160.75.122:8081"
 let url = "http://10.160.75.122:8081/"
+
 let server = HttpAgent.Start(url, fun mbox -> async {
     while true do 
       let! ctx = mbox.Receive()
       ctx |> handleRequest |> Async.Start })
 
+
+printfn "Enter here"
 System.Console.ReadLine() |> ignore
 
 
