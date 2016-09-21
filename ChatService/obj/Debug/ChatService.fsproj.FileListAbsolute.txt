@@ -6,3 +6,7 @@ c:\users\myang\documents\visual studio 2015\Projects\ChatService\ChatService\bin
 c:\users\myang\documents\visual studio 2015\Projects\ChatService\ChatService\bin\Debug\FSharp.Core.xml
 c:\users\myang\documents\visual studio 2015\Projects\ChatService\ChatService\obj\Debug\ChatService.exe
 c:\users\myang\documents\visual studio 2015\Projects\ChatService\ChatService\obj\Debug\ChatService.pdb
+C:\Users\myang\Documents\Visual Studio 2015\Projects\ChatService\ChatService\bin\Debug\FSharp.Data.dll
+C:\Users\myang\Documents\Visual Studio 2015\Projects\ChatService\ChatService\bin\Debug\FSharp.Data.pdb
+C:\Users\myang\Documents\Visual Studio 2015\Projects\ChatService\ChatService\bin\Debug\FSharp.Data.xml
+C:\Users\myang\Documents\Visual Studio 2015\Projects\ChatService\ChatService\obj\Debug\ChatService.fsproj.ChatService.exe.config

@@ -21,11 +21,18 @@ type internal ChatMessage =
 //the constructor, so the agent will be started when a new instance of the object is created
 type ChatRoom() = 
     let agent = Agent.Start(fun agent ->
-    
+        let (|Prefix|_|) (p:string) (s:string) =
+            if s.StartsWith(p) then
+                Some(s.Substring(p.Length))
+            else
+                None
+            
         let rec loop elements = async {
             let! msg = agent.Receive() 
             match msg with 
             | SendMessage text ->
+                
+                printfn "received: %s" text
                 let element = XElement(XName.Get("li"), text)
                 return! loop  (elements @ [element])
             | GetContent reply -> 

@@ -14,8 +14,15 @@
     };
 
     function send() {
-      $.ajax({ type: "POST", url: "/post", dataType: "text",
-          data: $("#textBox").val(), success: refresh });
+        var name = document.getElementById('name');
+        console.log(name.innerHTML)
+        $.ajax({
+            type: "POST",
+            url: "/post",
+            dataType: "text",
+            data: name.innerHTML +": "+$("#textBox").val(),
+            success: refresh
+        });
       $("#textBox").val("");
     }
 
@@ -27,6 +34,7 @@
 <body>
     <div id="page">
         <h1>Agent-based chatting platform</h1>
+        <div id="name" style="display: none;"></div>
         <div id="output"></div>
         <div id="input">
             <input type="text" id="textBox" />

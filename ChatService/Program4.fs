@@ -20,7 +20,7 @@
 
 open System.IO
 open System.Net
-
+open FSharp.Data
 #if INTERACTIVE
 #load @"program2"
 #endif 
@@ -33,6 +33,7 @@ open System.Net
 
 open program3
 open program2
+
 
 let room = new ChatRoom()
 // path that contains static files and a simple dictionary for get HTTP content type 
@@ -54,16 +55,34 @@ let handleRequest (context: HttpListenerContext ) = async {
         //get messages from the chat room (asynchronously!)
         let! text = room.AsyncGetContent()
         context.Response.Reply(text)
+    | "/directchat" -> 
+        //load the chat.html and send it back
+        let chathtml = "Request received"
+        //context.Response.Reply(chathtml)
+        let file1 = root + "/chat.html"
+        if File.Exists(file1) then
+            let ext1 = Path.GetExtension(file1).ToLower()
+            
+            let typ1 = contentTypes.[ext1]
+            context.Response.Reply(typ1, File.ReadAllBytes(file1))
+        else
+            context.Response.Reply(sprintf "File %s not found: " file1)
+
     | s ->
         //Handle an ordinary file request 
-        let file = root + (if s = "/" then "chat.html" else s)
-        if File.Exists(file) then
-            let ext = Path.GetExtension(file).ToLower()
-            let typ = contentTypes.[ext]
-            context.Response.Reply(typ, File.ReadAllBytes(file))
+        let file1 = root + (if s = "/" then "chat.html" else s)
+        let file2 = root + (if s = "/" then "profile.html" else s)
+        
+        if File.Exists(file1) && File.Exists(file2) then
+            //let ext1 = Path.GetExtension(file1).ToLower()
+            let ext2 = Path.GetExtension(file2).ToLower()
+            //let typ1 = contentTypes.[ext1]
+            let typ2 = contentTypes.[ext2]
+            //context.Response.Reply(typ1, File.ReadAllBytes(file1))
+            context.Response.Reply(typ2, File.ReadAllBytes(file2))
         else
-            context.Response.Reply(sprintf "File not found: %s" file)}
-
+            context.Response.Reply(sprintf "File %s not found: " file2)}
+            
 
 printfn "Start server at 10.160.75.122:8081"
 let url = "http://10.160.75.122:8081/"
