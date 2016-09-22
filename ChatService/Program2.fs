@@ -10,7 +10,7 @@ type Agent<'T> = MailboxProcessor<'T>
 
 
 //the message type is used only in the implementation of the agent
-//it doesnt nned to be visible to the callers of the library. For this reason, the type is marked as internal
+//it doesnt need to be visible to the callers of the library. For this reason, the type is marked as internal
 type internal ChatMessage = 
     | GetContent of AsyncReplyChannel<string> 
     | SendMessage of string

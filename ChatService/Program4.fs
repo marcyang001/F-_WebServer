@@ -23,7 +23,7 @@ open System.Net
 open FSharp.Data
 #if INTERACTIVE
 #load @"program2"
-#endif 
+#endif                        
 
 #if INTERACTIVE
 #load @"program3"
@@ -93,7 +93,7 @@ let server = HttpAgent.Start(url, fun mbox -> async {
       ctx |> handleRequest |> Async.Start })
 
 
-printfn "Enter here"
+printfn "Server is starting ..."
 System.Console.ReadLine() |> ignore
 
 

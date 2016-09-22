@@ -20,11 +20,20 @@
             type: "POST",
             url: "/post",
             dataType: "text",
-            data: name.innerHTML +": "+$("#textBox").val(),
+            data: name.innerHTML + ": " + $("#textBox").val(),
             success: refresh
         });
-      $("#textBox").val("");
+        $("#textBox").val("");
+    };
+    
+    function runScript(e) {
+        if (e.keyCode == 13) {
+            send();
+            
+        }
+        return false;
     }
+    
 
     setInterval(function () { refresh(); return true; }, 500);
 
@@ -37,8 +46,9 @@
         <div id="name" style="display: none;"></div>
         <div id="output"></div>
         <div id="input">
-            <input type="text" id="textBox" />
-            <button onclick="send();">Send</button>
+            
+            <input type="text" id="textBox" onkeypress="runScript(event)"/>
+            <button id="sendbutton" onclick="send();">Send</button>
         </div>
     </div>
 </body>
