@@ -3,59 +3,33 @@
 
     <head>
         <title>User identification</title>
+
+        <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
         <script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.5.min.js"></script>
+        <script type="text/javascript" src="app.js"></script>
+        
         <script type="text/javascript">
 
-            function refresh(name) {
-                console.log(name)
-                $.ajax({
-                    type: "GET", url: "/directchat", dataType: "text",
-                    success: function (data) {
-                        //$("#output").html(data);
-                        console.log(data)
-                        document.write(data)
-                        $("#name").html(name)
-                        //var div = document.getElementById('name');
-                        //div.innerHTML = name + ": "
-                        
-                    }
-                });
-            };
-
-            function send() {
-                var name = $("#textBox").val()
-                $.ajax({
-                    type: "POST", url: "/post",
-                    dataType: "text",
-                    data: $("#textBox").val() + " has logged in",
-                    success: refresh(name)
-                });
-            }
-
-            function runScript(e) {
-                if (e.keyCode == 13) {
-                    send();
-
-                }
-                return false;
-            }
+           
 
         </script>
+        <link rel="stylesheet" type="text/css" href="style.css" />
     </head>
 
     <body>
+         
+        <div id="page" ng-app="userProfile">
+            <h1>Please enter your name: </h1>
             
-        <div id="output"></div>   
+            <div name="userProfile" id="input" ng-controller="userController">
 
-        <h1>Please enter your name </h1>
+                <input name="user_name" type="text" id="textBox" ng-model="user_name" ng-keypress="runScript($event)" required/>
+
+                <button ng-click="send()">Send</button>
+            </div>
 
 
-        <div id="input">
-            <input type="text" id="textBox" onkeypress="runScript(event)"/>
-            <button onclick="send();">Send</button>
         </div>
-
-
     </body>
 
 

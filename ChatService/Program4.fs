@@ -39,7 +39,7 @@ let room = new ChatRoom()
 // path that contains static files and a simple dictionary for get HTTP content type 
 // of a file using the file extension. 
 let root = __SOURCE_DIRECTORY__ + "\\"
-let contentTypes = dict [ ".css", "text/css"; ".html", "text/html"]
+let contentTypes = dict [ ".css", "text/css"; ".html", "text/html"; ".js", "text/js"]
 
 
 // implement a function that asynchronously handles an incoming HTTP request

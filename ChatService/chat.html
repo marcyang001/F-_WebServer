@@ -3,17 +3,22 @@
 <head>
     <title>Chat</title>
     <script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.5.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+    
     <script type="text/javascript">
 
     function refresh() {
       $.ajax({ type: "GET", url: "/chat", dataType: "text",
         success: function (data) {
-          $("#output").html(data);
+            $("#output").html(data);
+
         }
       });
     };
-
+    
+    
     function send() {
+        
         var name = document.getElementById('name');
         console.log(name.innerHTML)
         $.ajax({
@@ -46,9 +51,8 @@
         <div id="name" style="display: none;"></div>
         <div id="output"></div>
         <div id="input">
-            
             <input type="text" id="textBox" onkeypress="runScript(event)"/>
-            <button id="sendbutton" onclick="send();">Send</button>
+            <button id="sendbutton" onclick="send()">Send</button>
         </div>
     </div>
 </body>

@@ -14,6 +14,7 @@ type Agent<'T> = MailboxProcessor<'T>
 type internal ChatMessage = 
     | GetContent of AsyncReplyChannel<string> 
     | SendMessage of string
+    | AddGroup
 
 //the type Chatroom is declared using implicit constructor syntax. if the chat room had any additional 
 //parameters (for example, name), they could be specified in the parenthese following the type name. 
@@ -21,26 +22,26 @@ type internal ChatMessage =
 //the constructor, so the agent will be started when a new instance of the object is created
 type ChatRoom() = 
     let agent = Agent.Start(fun agent ->
-        let (|Prefix|_|) (p:string) (s:string) =
-            if s.StartsWith(p) then
-                Some(s.Substring(p.Length))
-            else
-                None
-            
-        let rec loop elements = async {
-            let! msg = agent.Receive() 
-            match msg with 
-            | SendMessage text ->
+            let rec loop elements = async {
                 
-                printfn "received: %s" text
-                let element = XElement(XName.Get("li"), text)
-                return! loop  (elements @ [element])
-            | GetContent reply -> 
-                let html = XElement(XName.Get("ul"), elements)
-                reply.Reply(html.ToString())
-                return! loop elements } 
-        loop [] )
+                let! msg = agent.Receive() 
+                match msg with 
 
+                | SendMessage text ->
+                    printfn "received: %s" text
+                    let element = XElement(XName.Get("li"), text)
+                    let x = elements @ [element]
+                    return! loop x
+                | GetContent reply -> 
+                    let html = XElement(XName.Get("ul"), elements)
+                    reply.Reply(html.ToString())
+                    return! loop elements
+            }               
+                
+            loop []) 
+    
+     //The return! construct means that control is transferred to the called workflow, 
+     //so the recursion doesn't keep any stack that would overflow after a number of iterations. 
     // Members exposing chat room functionality
     // the message that can be sent to an agent typically correspond to the operations that the agent can perform
 
@@ -48,7 +49,7 @@ type ChatRoom() =
     // only a single nonblocking version of the member that immediately returns. The operation for getting the content from the chat room may take 
     // some time to complete because the agent first needs to process all of the previous pending messages. 
     // to support nonblocking calls, the class exposes both synchronous and asynchronous versions
-
+    
     member x.SendMessage(msg) = 
         agent.Post(SendMessage msg)
 
