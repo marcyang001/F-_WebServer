@@ -17,7 +17,7 @@
 // because the chat application also consists of a simple HTML fille and CSS style sheet
 
 // global declarations that are used when handling requests 
-
+open System
 open System.IO
 open System.Net
 open FSharp.Data
@@ -38,7 +38,7 @@ open program2
 let room = new ChatRoom()
 // path that contains static files and a simple dictionary for get HTTP content type 
 // of a file using the file extension. 
-let root = __SOURCE_DIRECTORY__ + "\\"
+let root = __SOURCE_DIRECTORY__ + "/"
 let contentTypes = dict [ ".css", "text/css"; ".html", "text/html"; ".js", "text/js"]
 
 
@@ -84,8 +84,13 @@ let handleRequest (context: HttpListenerContext ) = async {
             context.Response.Reply(sprintf "File %s not found: " file2)}
             
 
-printfn "Start server at 10.160.75.122:8081"
-let url = "http://10.160.75.122:8081/"
+
+
+
+let localHost = Dns.GetHostName()
+let ip = Dns.GetHostEntry(localHost).AddressList |> (fun x -> x.[0].ToString())
+let url = String.Format("http://{0}/", ip)
+printfn "Start server at %s" url
 
 let server = HttpAgent.Start(url, fun mbox -> async {
     while true do 

@@ -2,7 +2,7 @@
 angular.module('userProfile', [])
     .controller('userController', ['$scope', function ($scope) {
 
-        console.log($scope.userProfile.user_name.$valid)
+        //console.log($scope.userProfile.user_name.$valid)
         function refresh(name) {
             console.log(name)
             $.ajax({

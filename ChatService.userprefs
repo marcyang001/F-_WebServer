@@ -1,0 +1,16 @@
+﻿<Properties StartupConfiguration="{BC6ABEA8-FFB6-41FC-8EBC-A281AD662E01}|Default">
+  <MonoDevelop.Ide.Workbench ActiveDocument="ChatService/Program4.fs">
+    <Files>
+      <File FileName="ChatService/Program4.fs" Line="104" Column="39" />
+      <File FileName="ChatService/chat.html" Line="1" Column="1" />
+      <File FileName="ChatService/app.js" Line="1" Column="1" />
+      <File FileName="ChatService/profile.html" Line="9" Column="62" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.ItemProperties.ChatService PreferredExecutionTarget="MonoDevelop.Default" />
+</Properties>

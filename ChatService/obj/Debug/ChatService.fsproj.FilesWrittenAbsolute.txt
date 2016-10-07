@@ -1,0 +1,8 @@
+/Users/marcyang/Projects/FSharp_WebServer/ChatService/obj/Debug/.NETFramework,Version=v4.5.2.AssemblyAttribute.fs
+/Users/marcyang/Projects/FSharp_WebServer/ChatService/bin/Debug/ChatService.exe.config
+/Users/marcyang/Projects/FSharp_WebServer/ChatService/bin/Debug/ChatService.exe.mdb
+/Users/marcyang/Projects/FSharp_WebServer/ChatService/bin/Debug/ChatService.exe
+/Users/marcyang/Projects/FSharp_WebServer/ChatService/obj/Debug/ChatService.exe
+/Users/marcyang/Projects/FSharp_WebServer/ChatService/obj/Debug/ChatService.exe.mdb
+/Users/marcyang/Projects/FSharp_WebServer/ChatService/bin/Debug/FSharp.Data.dll
+/Users/marcyang/Projects/FSharp_WebServer/ChatService/bin/Debug/FSharp.Core.dll
