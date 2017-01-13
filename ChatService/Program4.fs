@@ -89,7 +89,7 @@ let handleRequest (context: HttpListenerContext ) = async {
 
 let localHost = Dns.GetHostName()
 let ip = Dns.GetHostEntry(localHost).AddressList |> (fun x -> x.[0].ToString())
-let url = String.Format("http://{0}/", ip)
+let url = String.Format("http://{0}:8000/", ip)
 printfn "Start server at %s" url
 
 let server = HttpAgent.Start(url, fun mbox -> async {

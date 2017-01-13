@@ -78,7 +78,7 @@ let chat = Agent.Start(fun agent ->
 
 chat.Post(SendMessage "Welcome to F# chat")
 chat.Post(SendMessage "second chat message...")
-chat.PostAndReply(GetContent)
+chat.PostAndReply(GetContent) |> ignore
 
 printfn "enter here" 
 

@@ -2,16 +2,21 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <title>Chat</title>
-    <script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.5.min.js"></script>
-    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+    <script type="text/javascript" src="resource/jquery/jquery-1.9.1.min.js"></script>
+    <script type="text/javascript" src="resource/angular/angular.min.js"></script>
     
     <script type="text/javascript">
-
+			
+    var name = document.getElementById('name');
     function refresh() {
       $.ajax({ type: "GET", url: "/chat", dataType: "text",
         success: function (data) {
-            $("#output").html(data);
+			var nameAndMessage = data.split(":")
 
+			console.log(nameAndMessage[0])
+			
+			
+            $("#output").html(data);
         }
       });
     };
@@ -20,7 +25,7 @@
     function send() {
         
         var name = document.getElementById('name');
-        console.log(name.innerHTML)
+			
         $.ajax({
             type: "POST",
             url: "/post",

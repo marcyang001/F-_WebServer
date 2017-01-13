@@ -14,7 +14,7 @@ type Agent<'T> = MailboxProcessor<'T>
 type internal ChatMessage = 
     | GetContent of AsyncReplyChannel<string> 
     | SendMessage of string
-    | AddGroup
+    | AddGroup of string
 
 //the type Chatroom is declared using implicit constructor syntax. if the chat room had any additional 
 //parameters (for example, name), they could be specified in the parenthese following the type name. 
@@ -36,6 +36,9 @@ type ChatRoom() =
                     let html = XElement(XName.Get("ul"), elements)
                     reply.Reply(html.ToString())
                     return! loop elements
+                | AddGroup groupname ->
+                    return! loop elements
+
             }               
                 
             loop []) 

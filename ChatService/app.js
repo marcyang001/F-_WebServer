@@ -1,15 +1,14 @@
 ﻿
 angular.module('userProfile', [])
     .controller('userController', ['$scope', function ($scope) {
-
-        //console.log($scope.userProfile.user_name.$valid)
+    	
         function refresh(name) {
-            console.log(name)
+            
             $.ajax({
                 type: "GET", url: "/directchat", dataType: "text",
                 success: function (data) {
                     //$("#output").html(data);
-                    console.log(data)
+
                     document.write(data)
                     $("#name").html(name)
                     //var div = document.getElementById('name');
